@@ -1,13 +1,15 @@
 from django.contrib import admin
-from aplic.models import Gato, Cachorro, Tutor, Raca, Tipo, Evento, Voluntario, Veterinario, Clinica
+from .models import Raca, Gato, Cachorro, Tutor, Voluntario, Veterinario, Tipo, Evento, Clinica
 
-@admin.register(Gato)
-class GatoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'peso')
-
-@admin.register(Cachorro)
-class CachorroAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'peso')
+admin.site.register(Cachorro)
+admin.site.register(Gato)
+admin.site.register(Tutor)
+admin.site.register(Raca)
+admin.site.register(Tipo)
+admin.site.register(Evento)
+admin.site.register(Voluntario)
+admin.site.register(Clinica)
+admin.site.register(Veterinario)
 
 
 
