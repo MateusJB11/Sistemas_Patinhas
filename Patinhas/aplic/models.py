@@ -100,8 +100,6 @@ class Evento(models.Model):
 
 class Clinica(models.Model):
     nome_clinica = models.CharField(("Clínica"), max_length=15, blank=True, null=True)
-    data_entrada = models.DateField(max_length=8, blank=True, null=True)
-    data_saida = models.DateField(max_length=8, blank=True, null=True)
     veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, null=True)
 
     class Meta:
