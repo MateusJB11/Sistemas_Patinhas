@@ -6,21 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG de Cachorros e Gatos</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
         <div class="header-content">
-            <img class="logo" src="{% static 'logo.png' %}" alt="Logo">
             <div>
                 <h1 class="text-content">ONG de Cachorros e Gatos SJPA</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#about">Sobre Nós</a></li>
-                        <li><a href="#donate">Faça Sua Doação</a></li>
-                        <li><a href="#contact">Contatos</a></li>
-                    </ul>
-                </nav>
             </div>
             <div>
                 <a href="/admin">
@@ -30,19 +23,6 @@
         </div>
     </header>
 
-    <section id="about">
-        <h2>Sobre Nós</h2>
-        <div class="about-content">
-            <div class="about-item">
-                <img src="{% static 'nossa_missao.jpg' %}" alt="Cachorro">
-                <div class="about-text">
-                    <h3>Nossa Missão</h3>
-                    <p>A ONG de Cachorros e Gatos é uma organização sem fins lucrativos dedicada ao resgate, cuidado e adoção de animais abandonados. Nosso objetivo é proporcionar uma vida digna e amorosa para todos os animais que cruzam nosso caminho.</p>
-                </div>
-            </div>
-            <!-- Mais conteúdo sobre a ONG -->
-        </div>
-    </section>
 
     <footer>
         <p>&copy; 2024 ONG de Cachorros e Gatos SJPA. Todos os direitos reservados.</p>

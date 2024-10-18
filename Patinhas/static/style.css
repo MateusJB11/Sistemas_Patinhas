@@ -1,0 +1,62 @@
+:root {
+    --primary-color: #66cdaa; /* Verde */
+    --secondary-color: #f6f2ed; /* Amarelo */
+    --text-color: #333; /* Texto padrão */
+    --header-bg-color: #66cdaa; /* Verde água */
+    --footer-bg-color: #333; /* Cor do rodapé */
+    --footer-text-color: #fff; /* Texto do rodapé */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg-color);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.text-content {
+    font-size: 2em;
+    margin: 0;
+}
+
+.login-btn {
+    background-color: #fff;
+    color: var(--header-bg-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: var(--header-bg-color);
+    color: #fff;
+}
+
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
