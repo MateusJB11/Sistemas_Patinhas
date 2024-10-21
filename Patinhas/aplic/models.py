@@ -58,6 +58,12 @@ class Endereco(models.Model):
     estado = models.CharField(('Estado'), max_length=2, blank=True, null=True)
     cep = models.IntegerField(('CEP'), blank=True, null=True)
 
+    class Meta:
+        verbose_name_plural = 'Endereços'
+
+    def __str__(self):
+        return 'Endereço'
+
 class Tutor(Pessoa):
     email = models.EmailField(('Email'), blank=True, null=True)
     endereco = models.ForeignKey(Endereco, blank=True, null=True, on_delete=models.CASCADE)
