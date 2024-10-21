@@ -49,15 +49,19 @@ class Pessoa(models.Model):
     data_nascimento = models.DateField(max_length=8, blank=True, null=True)
     telefone = models.CharField(('Telefone'), max_length=11, blank=True, null=True)
 
+class Endereco(models.Model):
+    logradouro = models.CharField(('Logradouro'), max_length=50, blank=True, null=True)
+    numero_logradouro = models.IntegerField(('Número'), blank=True, null=True)
+    complemento = models.CharField(('Complemento'), max_length=30, blank=True, null=True)
+    bairro = models.CharField(('Bairro'), max_length=50, blank=True, null=True)
+    cidade = models.CharField(('Cidade'), max_length=20, blank=True, null=True)
+    estado = models.CharField(('Estado'), max_length=2, blank=True, null=True)
+    cep = models.IntegerField(('CEP'), blank=True, null=True)
 
 class Tutor(Pessoa):
     email = models.EmailField(('Email'), blank=True, null=True)
-    cep = models.CharField(('CEP'), max_length=8, blank=True, null=True)
-    logradouro = models.CharField(('Logradouro'), max_length=50, blank=True, null=True)
-    numero_casa = models.CharField(('Número'), max_length=15, blank=True, null=True)
-    complemento = models.CharField(('Complemento'), max_length=30, blank=True, null=True)
-    cidade = models.CharField(('Cidade'), max_length=20, blank=True, null=True)
-    estado = models.CharField(('UF'), max_length=2, blank=True, null=True)
+    endereco = models.ForeignKey(Endereco, blank=True, null=True, on_delete=models.CASCADE)
+
     class Meta:
         verbose_name_plural = 'Tutores'
 
@@ -107,4 +111,7 @@ class Clinica(models.Model):
 
     def __str__(self):
         return self.veterinario
+
+
+
 # Create your models here.
