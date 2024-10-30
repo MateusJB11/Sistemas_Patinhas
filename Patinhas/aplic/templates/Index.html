@@ -1,32 +1,30 @@
+{% load static %}
+{% load bootstrap5 %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONG de Cachorros e Gatos</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sistema de Controle Acadêmico</title>
+     {% bootstrap_css %}
 </head>
-<body>
-    <header>
-        <div class="header-content">
-            <div>
-                <h1 class="text-content">ONG de Cachorros e Gatos SJPA</h1>
-            </div>
-            <div>
-                <a href="/admin">
-                    <button class="login-btn">Entrar</button>
-                </a>
-            </div>
-        </div>
-    </header>
 
+<body class="d-flex flex-column h-100">
+<header>
+<!--     aqui eu tenho que injetar o meu navbar       -->
+    {% include 'Header.html' %}
+</header>
 
-    <footer>
-        <p>&copy; 2024 ONG de Cachorros e Gatos SJPA. Todos os direitos reservados.</p>
-    </footer>
+<main>
+<!--    Injetar qualquer página que eu clicar -->
+    {% block content %} {% endblock %}
+</main>
 
+<!--    Injetar footer aqui -->
+    {% include 'footer.html' %}
+
+    {% bootstrap_javascript %}
 </body>
 </html>
