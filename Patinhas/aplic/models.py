@@ -1,4 +1,11 @@
+import uuid
 from django.db import models
+from stdimage.models import StdImageField
+
+def get_file_path(_instance, filename):
+    ext = filename.split('.')[-1]
+    filename = f'{uuid.uuid4()}.{ext}'
+    return filename
 
 class SexOptions(models.TextChoices):
     FEMALE = 'F', 'Femêa'
@@ -23,6 +30,7 @@ class Animal(models.Model):
     sexo = models.CharField(('sexo'), max_length=1, choices=SexOptions.choices)
     personalidade = models.CharField()
     raca = models.ForeignKey(Raca, on_delete=models.CASCADE, null=True)
+    imagem = StdImageField(('Imagem'), null=True, blank=True, upload_to=get_file_path, variations={'thumb': {'width': 420, 'height': 260, 'crop': True}})
 
 
 class Cachorro(Animal):
