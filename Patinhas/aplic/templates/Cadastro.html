@@ -1,0 +1,57 @@
+{% extends 'Index.html'  %}
+{% load static %}
+
+
+{% block content %}
+
+    {% csrf_token %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+
+            <!-- Form start -->
+            <form class="text-center p-4">
+
+                <!-- Name input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <input type="text" id="registerName" class="form-control" />
+                    <label class="form-label" for="registerName">Nome</label>
+                </div>
+
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    {{form_usuario.username.errors}}
+                    <input type="email" id="registerEmail" class="form-control" />
+                    <label class="form-label" for="registerEmail">Email</label>
+                </div>
+
+                <!-- Password input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    {{form_usuario.password1.errors}}
+                    <input type="password" id="registerPassword" class="form-control" />
+                    <label class="form-label" for="registerPassword">Senha</label>
+                </div>
+
+                <!-- Repeat Password input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    {{form_usuario.password2.errors}}
+                    <input type="password" id="registerRepeatPassword" class="form-control" />
+                    <label class="form-label" for="registerRepeatPassword">Confirme a Senha</label>
+                </div>
+
+
+                <!-- Submit button -->
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-3">
+                    Registrar
+                </button>
+
+            </form>
+            <!-- Form end -->
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

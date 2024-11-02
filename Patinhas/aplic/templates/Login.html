@@ -1,0 +1,25 @@
+{% extends 'Index.html'  %}
+{% load static %}
+
+
+{% block content %}
+
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="email" id="loginName" class="form-control" />
+        <label class="form-label" for="loginName">Email or username</label>
+    </div>
+
+      <!-- Password input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="password" id="loginPassword" class="form-control" />
+        <label class="form-label" for="loginPassword">Password</label>
+    </div>
+
+    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Entrar</button>
+
+    <div class="text-center">
+        <p>Não tem conta? <a href="cadastrar_usuario">Resgistrar-se</a></p>
+    </div>
+
+
+{% endblock %}

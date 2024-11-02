@@ -21,12 +21,12 @@ from rest_framework.routers import SimpleRouter
 from aplic.views import IndexView
 from django.conf.urls.static import static
 from django.conf import settings
-
-
+from aplic.views import cadastrar_usuario
 
 router = SimpleRouter()
 
 urlpatterns = [
+    path('cadastro/', cadastrar_usuario, name="cadastrar_usuario"),
     path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
