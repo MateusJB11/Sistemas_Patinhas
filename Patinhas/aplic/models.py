@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from stdimage.models import StdImageField
+from django.contrib.auth.models import AbstractUser
 
 
 
