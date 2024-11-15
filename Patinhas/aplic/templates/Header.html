@@ -7,19 +7,22 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Cachorros</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Gatos</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Clinica</a></li>
       </ul>
 
 
       <div class="col-md-3 text-end me-3">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        {% if request.path != '/login/' %}
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        {% else %}
+        <button class="btn btn-secondary" disabled>Login</button>
+        {% endif %}
         {% if request.path != '/cadastro/' %}
         <a href="cadastro/" class="btn btn-primary">Registrar</a>
         {% else %}
-        <button class="btn btn-secondary" disabled>Registrar</button> <!-- Botão desabilitado -->
+        <button class="btn btn-secondary" disabled>Registrar</button>
         {% endif %}
       </div>
 
