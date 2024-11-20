@@ -1,52 +1,72 @@
 {% extends 'Index.html'  %}
 {% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
 
 {% block content %}
+
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 col-sm-10">
 
+          <form method="post">
+            {% csrf_token %}
 
-
-      <div data-mdb-input-init class="form-outline mb-4">
-        <input type="email" id="loginName" class="form-control" />
-        <label class="form-label" for="loginName">Email</label>
-      </div>
-
-
-      <div data-mdb-input-init class="form-outline mb-4">
-        <input type="password" id="loginPassword" class="form-control" />
-        <label class="form-label" for="loginPassword">Senha</label>
-      </div>
-
-      <div class="row mb-4">
-        <div class="col-md-6 d-flex justify-content-center">
-
-          <div class="form-check mb-3 mb-md-0">
-            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-            <label class="form-check-label" for="loginCheck"> Lembre-se de mim </label>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex justify-content-center">
-
-          <a href="#!">Esqueceu a Senha?</a>
-        </div>
-      </div>
-
-
-      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Entrar</button>
-
-
-      <div class="text-center">
-        <p>Não é cadastrado?<a href="/cadastro"> Registre-se!</a></p>
-      </div>
-
+                {{ form | crispy }}
+            <input class="btn btn-primary" type="submit" value="Enviar">
+          </form>
 
         </div>
     </div>
 </div>
+
+
+<!--<div class="container">-->
+<!--    <div class="row justify-content-center">-->
+<!--        <div class="col-lg-6 col-md-8 col-sm-10">-->
+
+
+
+<!--      <div data-mdb-input-init class="form-outline mb-4">-->
+<!--        <input type="email" id="loginName" class="form-control" />-->
+<!--        <label class="form-label" for="loginName">Email</label>-->
+<!--      </div>-->
+
+
+<!--      <div data-mdb-input-init class="form-outline mb-4">-->
+<!--        <input type="password" id="loginPassword" class="form-control" />-->
+<!--        <label class="form-label" for="loginPassword">Senha</label>-->
+<!--      </div>-->
+
+<!--      <div class="row mb-4">-->
+<!--        <div class="col-md-6 d-flex justify-content-center">-->
+
+<!--          <div class="form-check mb-3 mb-md-0">-->
+<!--            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />-->
+<!--            <label class="form-check-label" for="loginCheck"> Lembre-se de mim </label>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="col-md-6 d-flex justify-content-center">-->
+
+<!--          <a href="#!">Esqueceu a Senha?</a>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+<!--      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Entrar</button>-->
+
+
+<!--      <div class="text-center">-->
+<!--        <p>Não é cadastrado?<a href="/cadastro"> Registre-se!</a></p>-->
+<!--      </div>-->
+
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 
 {% endblock %}

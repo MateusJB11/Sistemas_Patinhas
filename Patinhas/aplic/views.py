@@ -1,8 +1,10 @@
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.shortcuts import redirect, render
-from django.views.generic import TemplateView
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import redirect, render, reverse
+from django.views.generic import TemplateView, FormView
 from django.contrib.auth.decorators import login_required
+from .form import CustomUserCreationForm
+
 
 
 class IndexView(TemplateView):
@@ -12,23 +14,17 @@ class IndexView(TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
         return context
 
-class CadastrarUsuario(TemplateView):
+class CadastrarUsuario(FormView):
     template_name = 'Cadastro.html'
+    form_class= CustomUserCreationForm
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.POST = None
-        self.method = None
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid
 
-    def cadastrar(request):
-        if request.method == "POST":
-            form_usuario = UserCreationForm(request.POST)
-            if form_usuario.is_valid():
-                form_usuario.save()
-                return redirect('Index')
-        else:
-            form_usuario = UserCreationForm()
-        return render(request, 'Cadastro.html', {'form_usuario': form_usuario})
+    def get_success_url(self):
+        return reverse('login')
+
 
 
 def logar(request):
