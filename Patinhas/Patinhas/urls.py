@@ -15,19 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import path, include
 from django.contrib import admin
-from rest_framework.routers import SimpleRouter
-from aplic.views import IndexView
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from aplic.views import cadastrar_usuario, logar_usuario
 
-router = SimpleRouter()
 
 urlpatterns = [
-    path('login/', logar_usuario, name='login'),
-    path('cadastro/', cadastrar_usuario, name="cadastrar_usuario"),
-    path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
+    path('', include('aplic.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

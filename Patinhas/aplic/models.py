@@ -54,11 +54,11 @@ class Gato(Animal):
         return self.nome
 
 
-class Pessoa(models.Model):
-    nome = models.CharField(max_length=50)
+class Usuario(AbstractUser):
     cpf = models.CharField(('CPF'), max_length=11, blank=True, null=True)
     data_nascimento = models.DateField(max_length=8, blank=True, null=True)
     telefone = models.CharField(('Telefone'), max_length=11, blank=True, null=True)
+
 
 class Endereco(models.Model):
     logradouro = models.CharField(('Logradouro'), max_length=50, blank=True, null=True)
@@ -75,26 +75,10 @@ class Endereco(models.Model):
     def __str__(self):
         return 'Endereço'
 
-class Tutor(Pessoa):
-    email = models.EmailField(('Email'), blank=True, null=True)
-    endereco = models.ForeignKey(Endereco, blank=True, null=True, on_delete=models.CASCADE)
 
-    class Meta:
-        verbose_name_plural = 'Tutores'
-
-    def __str__(self):
-        return self.nome
-
-class Voluntario(Pessoa):
-
-    class Meta:
-        verbose_name_plural = 'Voluntários'
-
-    def __str__(self):
-        return self.nome
-
-class Veterinario(Pessoa):
-    crmv = models.CharField(("CRMV"), max_length=10, blank=True, null=True )
+class Veterinario(models.Model):
+    crmv = models.CharField(("CRMV"), max_length=10, blank=True, null=True)
+    telefone = models.CharField(('Telefone'), max_length=11, blank=True, null=True)
 
 class Tipo(models.Model):
     nome_tipo = models.CharField(("Tipo"), max_length=50)

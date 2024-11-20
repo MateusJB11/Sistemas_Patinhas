@@ -14,19 +14,19 @@
 
 <body class="d-flex flex-column h-100">
 <header>
-<!--     aqui eu tenho que injetar o meu navbar       -->
+
     {% include 'Header.html' %}
 </header>
 
 <main>
-<!--    Injetar qualquer página que eu clicar -->
+
     {% block content %}
 
     {% endblock %}
 </main>
 <footer>
 
-<!--    Injetar footer aqui -->
+
     {% include 'footer.html' %}
 
     {% bootstrap_javascript %}

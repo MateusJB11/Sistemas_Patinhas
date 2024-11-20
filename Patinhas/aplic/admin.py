@@ -1,5 +1,13 @@
 from django.contrib import admin
-from .models import Raca, Gato, Cachorro, Tutor, Voluntario, Veterinario, Tipo, Evento, Clinica, Endereco
+from .models import Raca, Gato, Cachorro, Veterinario, Tipo, Evento, Clinica, Endereco, Usuario
+from django.contrib.auth.admin import UserAdmin
+
+field = list(UserAdmin.fieldsets)
+field.append(
+    ('Informações complementares', {'fields': ('cpf', 'telefone', 'data_nascimento')}),
+    )
+UserAdmin.fieldsets = tuple(field)
+admin.site.register(Usuario, UserAdmin)
 
 @admin.register(Raca)
 class RacaAdmin(admin.ModelAdmin):
@@ -10,15 +18,9 @@ class GatoAdmin(admin.ModelAdmin):
 @admin.register(Cachorro)
 class CachorroAdmin(admin.ModelAdmin):
     list_display = ('nome', 'peso', 'sexo')
-@admin.register(Tutor)
-class TutorAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'cpf', 'telefone', 'email')
-@admin.register(Voluntario)
-class VoluntarioAdmin(admin.ModelAdmin):
-    list_display = ('nome','telefone')
 @admin.register(Veterinario)
 class VeterinarioAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'crmv', 'telefone')
+    list_display = ('crmv', 'telefone')
 @admin.register(Tipo)
 class TipoAdmin(admin.ModelAdmin):
     list_display = ('nome_tipo', 'descricao_tipo')
@@ -31,6 +33,7 @@ class ClinicaAdmin(admin.ModelAdmin):
 @admin.register(Endereco)
 class EnderecoAdmin(admin.ModelAdmin):
     list_display = ('logradouro', 'numero_logradouro', 'complemento')
+
 
 
 
