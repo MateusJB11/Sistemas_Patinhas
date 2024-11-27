@@ -31,7 +31,7 @@ class Animal(models.Model):
     peso = models.FloatField(('peso'), blank=True, null=True, max_length="5")
     data_nascimento = models.DateField(max_length=8, blank=True, null=True)
     sexo = models.CharField(('sexo'), max_length=1, choices=SexOptions.choices)
-    personalidade = models.CharField()
+    descricao = models.CharField(('descrição'), max_length=300, blank=True, null=True)
     raca = models.ForeignKey(Raca, on_delete=models.CASCADE, null=True)
     imagem = StdImageField(('Imagem'), null=True, blank=True, upload_to=get_file_path, variations={'thumb': {'width': 420, 'height': 260, 'crop': True}})
 

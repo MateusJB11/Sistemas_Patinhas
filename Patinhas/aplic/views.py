@@ -41,4 +41,10 @@ def logar(request):
         form_login = AuthenticationForm()
     return render(request, 'login.html', {'form_login': form_login})
 
+class CachorrosView(TemplateView):
+    template_name = 'Cachorros.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CachorrosView, self).get_context_data(**kwargs)
+        return context
 # Create your views here.

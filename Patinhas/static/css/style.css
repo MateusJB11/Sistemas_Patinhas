@@ -35,13 +35,17 @@ a:hover {
 
 
 footer {
-    background-color: var(--primary-green, #2ebd77);
-    color: var(--light-color, #fff);
+    background-color: var(--primary-green);
+    color: var(--light-color);
     text-align: center;
     padding: 20px;
     width: 100%;
     border-top: 1px solid #ddd;
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
 }
+
 
 main {
     flex: 1;
@@ -67,4 +71,52 @@ input, textarea {
     border-radius: 5px;
     width: 100%;
     margin-bottom: 10px;
+}
+
+
+.btn-login, .btn-register {
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btn-login:hover, .btn-register:hover {
+    background: linear-gradient(45deg, var(--secondary-green), var(--primary-green));
+    text-decoration: underline;
+    border-color: var(--secondary-green);
+}
+
+.btn-login:disabled, .btn-register:disabled {
+    background: var(--primary-green);
+    color: var(--light-color);
+    cursor: not-allowed;
+    opacity: 0.5;
+    border: 2px solid var(--primary-green);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus, .btn-login:focus, .btn-register:focus {
+    outline: none;
+    border-color: var(--secondary-green);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.gradient-custom {
+    background-color: var(--background-color);
+    flex: 1;
 }

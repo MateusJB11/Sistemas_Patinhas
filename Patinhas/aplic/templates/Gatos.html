@@ -1,0 +1,29 @@
+{% extends 'Index.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+    {% for gato in gatos %}
+       <div class="card" style="width: 18rem;">
+          <img src="{{ gato.imagem.thumb.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{gato.nome}}</h5>
+            <p class="card-text">
+                {{gato.descricao}}.
+            </p>
+            <a href="/gatos-detalhe/{{gato.id}}" class="btn btn-primary">Saiba mais</a>
+          </div>
+        </div>
+    {% endfor %}
+
+      </div>
+</div>
+
+{% endblock %}
