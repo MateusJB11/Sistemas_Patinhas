@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import AUTH_USER_MODEL
+from django.conf.global_settings import AUTH_USER_MODEL, LOGIN_URL
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -154,3 +154,5 @@ CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 LOGIN_REDIRECT_URL = 'index'
+
+LOGIN_URL = 'Login'

@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render, reverse
 from django.views.generic import TemplateView, FormView
 from django.contrib.auth.decorators import login_required
 from .form import CustomUserCreationForm
+from .models import Cachorro
 
 
 
@@ -20,7 +21,7 @@ class CadastrarUsuario(FormView):
 
     def form_valid(self, form):
         form.save()
-        return super().form_valid
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('login')
@@ -46,5 +47,8 @@ class CachorrosView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(CachorrosView, self).get_context_data(**kwargs)
+        context['cachorros'] = Cachorro.objects.all()
         return context
+
+
 # Create your views here.
