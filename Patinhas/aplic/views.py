@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render, reverse
 from django.views.generic import TemplateView, FormView
 from django.contrib.auth.decorators import login_required
 from .form import CustomUserCreationForm
-from .models import Cachorro
+from .models import Cachorro, Gato
 
 
 
@@ -48,6 +48,14 @@ class CachorrosView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(CachorrosView, self).get_context_data(**kwargs)
         context['cachorros'] = Cachorro.objects.all()
+        return context
+
+class GatoView(TemplateView):
+    template_name = 'Gatos.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GatoView, self).get_context_data(**kwargs)
+        context['gatos'] = Gato.objects.all()
         return context
 
 
