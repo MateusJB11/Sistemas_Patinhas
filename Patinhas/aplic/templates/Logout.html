@@ -1,0 +1,36 @@
+{% extends 'Index.html'  %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card" style="background: linear-gradient(45deg, var(--primary-green), var(--secondary-green)); color: var(--light-color); border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Desconectado</h2>
+              <p class="text-white-50 mb-5">Você foi desconectado. Entre novamente</p>
+
+
+              <a href="{% url 'login' %}" class="btn-login">Entrar</a>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

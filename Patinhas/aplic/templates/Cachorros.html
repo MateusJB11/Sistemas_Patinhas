@@ -15,12 +15,16 @@
             <p class="card-text">
                 {{cachorro.descricao}}. Raça: {{cachorro.raca}}. Porte: {{cachorro.porte}}
             </p>
-            <a href="/cachorro-detalhe/{{cachorro.id}}" class="btn btn-primary">Saiba mais</a>
+              {% if user.is_authenticated %}
+                <a href="/cachorro-detalhe/{{cachorro.id}}" class="btn btn-primary">Saiba mais</a>
+              {% else %}
+                <a href="/cachorro-detalhe/{{cachorro.id}}" class="btn btn-primary">Entrar</a>
+              {% endif %}
           </div>
         </div>
     {% endfor %}
 
-      </div>
+    </div>
 
 </div>
 

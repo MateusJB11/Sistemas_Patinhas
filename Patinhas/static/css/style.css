@@ -3,15 +3,17 @@
     --secondary-green: #68e4c4;
     --dark-color: #000000;
     --light-color: #ffffff;
-    --background-color: #e6fff0;
+    --background-color: #F8F8FF;
 }
-
 
 html, body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: var(--background-color);
+    color: var(--dark-color);
 }
 
 header {
@@ -20,6 +22,8 @@ header {
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 
@@ -33,7 +37,6 @@ a:hover {
     text-decoration: underline;
 }
 
-
 footer {
     background-color: var(--primary-green);
     color: var(--light-color);
@@ -46,9 +49,16 @@ footer {
     margin-top: auto;
 }
 
+footer .nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
 
 main {
     flex: 1;
+    padding: 20px;
+    text-align: justify;
 }
 
 button {
@@ -64,15 +74,14 @@ button:hover {
     background-color: var(--secondary-green);
 }
 
-
 input, textarea {
     border: 1px solid var(--primary-green);
     padding: 10px;
     border-radius: 5px;
     width: 100%;
     margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
 }
-
 
 .btn-login, .btn-register {
     background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
@@ -84,6 +93,7 @@ input, textarea {
     text-align: center;
     display: inline-block;
     margin-right: 10px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .btn-login:hover, .btn-register:hover {
@@ -98,6 +108,27 @@ input, textarea {
     cursor: not-allowed;
     opacity: 0.5;
     border: 2px solid var(--primary-green);
+}
+
+.cta .btn {
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
+    color: var(--dark-color);
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cta .btn:hover {
+    background: linear-gradient(45deg, var(--secondary-green), var(--primary-green));
+}
+
+.cta .btn:active {
+    background: var(--primary-green);
+    color: var(--light-color);
 }
 
 * {
@@ -119,4 +150,10 @@ input:focus, textarea:focus, .btn-login:focus, .btn-register:focus {
 .gradient-custom {
     background-color: var(--background-color);
     flex: 1;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: var(--primary-green);
 }

@@ -60,21 +60,6 @@ class Usuario(AbstractUser):
     telefone = models.CharField(('Telefone'), max_length=11, blank=True, null=True)
 
 
-class Endereco(models.Model):
-    logradouro = models.CharField(('Logradouro'), max_length=50, blank=True, null=True)
-    numero_logradouro = models.IntegerField(('Número'), blank=True, null=True)
-    complemento = models.CharField(('Complemento'), max_length=30, blank=True, null=True)
-    bairro = models.CharField(('Bairro'), max_length=50, blank=True, null=True)
-    cidade = models.CharField(('Cidade'), max_length=20, blank=True, null=True)
-    estado = models.CharField(('Estado'), max_length=2, blank=True, null=True)
-    cep = models.IntegerField(('CEP'), blank=True, null=True)
-
-    class Meta:
-        verbose_name_plural = 'Endereços'
-
-    def __str__(self):
-        return 'Endereço'
-
 
 class Veterinario(models.Model):
     crmv = models.CharField(("CRMV"), max_length=10, blank=True, null=True)
@@ -106,6 +91,13 @@ class Evento(models.Model):
 class Clinica(models.Model):
     nome_clinica = models.CharField(("Clínica"), max_length=15, blank=True, null=True)
     veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, null=True)
+    logradouro = models.CharField(('Logradouro'), max_length=50, blank=True, null=True)
+    numero_logradouro = models.IntegerField(('Número'), blank=True, null=True)
+    complemento = models.CharField(('Complemento'), max_length=30, blank=True, null=True)
+    bairro = models.CharField(('Bairro'), max_length=50, blank=True, null=True)
+    cidade = models.CharField(('Cidade'), max_length=20, blank=True, null=True)
+    estado = models.CharField(('Estado'), max_length=2, blank=True, null=True)
+    cep = models.IntegerField(('CEP'), blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Clínicas'

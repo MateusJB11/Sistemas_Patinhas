@@ -2,14 +2,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import redirect, render, reverse
 from django.views.generic import TemplateView, FormView
-from django.contrib.auth.decorators import login_required
 from .form import CustomUserCreationForm
 from .models import Cachorro, Gato
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class IndexView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'Home.html'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
@@ -50,6 +49,16 @@ class CachorrosView(TemplateView):
         context['cachorros'] = Cachorro.objects.all()
         return context
 
+class CachorrosDetalheView(LoginRequiredMixin, TemplateView):
+    template_name = 'Cachorros_detalhe.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        id = self.kwargs.get('id')
+        context['cachorro'] = Cachorro.objects.get(id=id)
+        return context
+
+
 class GatoView(TemplateView):
     template_name = 'Gatos.html'
 
@@ -58,5 +67,13 @@ class GatoView(TemplateView):
         context['gatos'] = Gato.objects.all()
         return context
 
+class GatoDetalheView(TemplateView):
+    template_name = 'Gatos_detalhe.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        id = self.kwargs.get('id')
+        context['gato'] = Gato.objects.get(id=id)
+        return context
 
 # Create your views here.

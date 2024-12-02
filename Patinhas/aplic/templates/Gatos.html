@@ -18,7 +18,11 @@
             <p class="card-text">
                 {{gato.descricao}}. Raça: {{gato.raca}}
             </p>
-            <a href="/gato-detalhe/{{gato.id}}" class="btn btn-primary">Saiba mais</a>
+              {% if user.is_authenticated %}
+                <a href="/gato-detalhe/{{gato.id}}" class="btn btn-primary">Saiba mais</a>
+              {% else %}
+                <a href="/gato-detalhe/{{gato.id}}" class="btn btn-primary">Entrar</a>
+              {% endif %}
           </div>
         </div>
     {% endfor %}

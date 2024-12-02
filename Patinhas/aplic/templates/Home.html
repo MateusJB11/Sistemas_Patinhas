@@ -1,0 +1,44 @@
+{% extends 'Index.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+  <h1>Bem-vindos à Sociedade Juizforense de Proteção aos Animais e ao Meio Ambiente (SJPA)</h1>
+
+  <p>
+    Há 35 anos, nossa missão é salvar vidas e transformar histórias. Somos uma organização sem fins lucrativos que acolhe mais de 600 animais entre cães e gatos, oferecendo-lhes abrigo, cuidado e muito amor.
+  </p>
+
+  <p>
+    Nosso trabalho é movido pela solidariedade e pela paixão por um mundo melhor. Desde resgates de animais em situação de risco até a busca por lares definitivos, nossa equipe trabalha incansavelmente para proporcionar dignidade e esperança aos nossos amigos de quatro patas.
+  </p>
+
+
+  <h2>Como você pode nos ajudar?</h2>
+
+  <p>
+    A SJPA sobrevive exclusivamente graças às doações de pessoas como você. Cada contribuição faz a diferença para continuarmos salvando vidas.
+  </p>
+  <p style="text-align: center;">
+    <strong>Pix:</strong> 20460556/0001-78 (CNPJ)
+  </p>
+
+  <p>
+    Você também pode fazer a diferença se voluntariando ou adotando nossos cães e gatos. Seja dedicando um pouco do seu tempo para ajudar em nossas atividades ou oferecendo um lar cheio de carinho para um dos nossos animais, sua contribuição é essencial. Voluntários são bem-vindos para apoiar no cuidado dos animais, eventos e campanhas de conscientização. Já a adoção é um ato de amor que transforma vidas — tanto a dos animais quanto a dos novos tutores.
+  </p>
+
+  <div class="cta">
+  <a class="btn" href="/cachorros">Adote um Cão</a>
+  <a class="btn" href="/gatos">Adote um Gato</a>
+    {% if user.is_authenticated %}
+      <a class="btn" href="https://wa.me/5532991357734" target="_blank">Seja Voluntário</a>
+    {% else %}
+      <a class="btn" href="https://wa.me/5532991357734" target="_blank">Seja Voluntário</a>
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}
