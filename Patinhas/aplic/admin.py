@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Raca, Gato, Cachorro, Veterinario, Tipo, Evento, Clinica, Usuario
+from .models import Raca, Gato, Cachorro, Veterinario, Tipo, Evento, Clinica, Usuario, Querocachorro, Querogato
 from django.contrib.auth.admin import UserAdmin
 
 field = list(UserAdmin.fieldsets)
@@ -30,6 +30,12 @@ class EventoAdmin(admin.ModelAdmin):
 @admin.register(Clinica)
 class ClinicaAdmin(admin.ModelAdmin):
     list_display = ('nome_clinica', 'veterinario')
+@admin.register(Querocachorro)
+class QuerocachorroAdmin(admin.ModelAdmin):
+    list_display = ('usuario','cachorro', 'mensagem','data_criacao')
+@admin.register(Querogato)
+class QuerogatoAdmin(admin.ModelAdmin):
+    list_display = ('usuario','gato', 'mensagem', 'data_criacao')
 
 
 

@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from .views import IndexView, CadastrarUsuario, CachorrosView, GatoView, GatoDetalheView, CachorrosDetalheView
+from .views import IndexView, CadastrarUsuario, CachorrosView, GatoView, GatoDetalheView, CachorrosDetalheView, querocachorroView, querogatoView, feedback_sucessoView
 from django.contrib.auth import views as auth_views
 
 
@@ -15,5 +15,7 @@ urlpatterns = [
     path('gatos/', GatoView.as_view(), name='gatos'),
     path('gato-detalhe/<int:id>/', GatoDetalheView.as_view(), name='gato-detalhe'),
     path('logout/', auth_views.LogoutView.as_view(template_name='Logout.html'), name='logout'),
-
+    path('querocachorro/<int:id>/', querocachorroView, name='querocachorro'),
+    path('querogato/<int:id>/', querocachorroView, name='querogato'),
+    path('queroadotar/sucesso/', feedback_sucessoView, name='feedback_sucesso')
 ]

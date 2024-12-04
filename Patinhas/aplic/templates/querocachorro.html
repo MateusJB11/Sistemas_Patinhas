@@ -4,9 +4,13 @@
 
 {% block content %}
 
-         <form method="post">
-             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Enviar</button>
-         </form>
+         <h1>Quero Adotar: {{ cachorro.nome }}</h1>
+    <img src="{{ cachorro.imagem.url }}" alt="{{ cachorro.nome }}">
+    <p><strong>Raça:</strong> {{ cachorro.raca }}</p>
+    <p><strong>Porte:</strong> {{ cachorro.porte }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar Pedido</button>
+    </form>
 {% endblock %}

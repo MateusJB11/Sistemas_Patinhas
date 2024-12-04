@@ -106,5 +106,23 @@ class Clinica(models.Model):
         return self.veterinario
 
 
+class Querocachorro(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    cachorro = models.ForeignKey(Cachorro, on_delete=models.CASCADE)
+    mensagem = models.TextField(('Por que você quer adotar?'), blank=True, null=True)
+    data_criacao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Feedback de {self.usuario} em {self.data_criacao}"
+
+
+class Querogato(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    gato = models.ForeignKey(Gato, on_delete=models.CASCADE)
+    mensagem = models.TextField(('Por que você quer adotar?'), blank=True, null=True)
+    data_criacao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Feedback de {self.usuario} em {self.data_criacao}"
 
 # Create your models here.

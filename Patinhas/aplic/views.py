@@ -1,8 +1,10 @@
+from tempfile import template
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import redirect, render, reverse
+from django.shortcuts import redirect, render, reverse, get_object_or_404
 from django.views.generic import TemplateView, FormView
-from .form import CustomUserCreationForm
+from .form import CustomUserCreationForm, QueroadotarForm
 from .models import Cachorro, Gato
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -75,5 +77,40 @@ class GatoDetalheView(TemplateView):
         id = self.kwargs.get('id')
         context['gato'] = Gato.objects.get(id=id)
         return context
+
+
+def querocachorroView(request, id):
+
+    if request.method == 'POST':
+        cachorro = get_object_or_404(Cachorro, id=id)
+        form = QueroadotarForm(request.POST)
+        if form.is_valid():
+            adocao = form.save(commit=False)
+            adocao.usuario = request.user
+            adocao.cachorro = cachorro
+            adocao.save()
+            return redirect('feedback_sucesso')
+    else:
+        form = QueroadotarForm()
+    return render(request, 'querocachorro.html', {'form': form})
+
+
+def querogatoView(request, id):
+    if request.method == 'POST':
+        form = QueroadotarForm(request.POST)
+        gato = get_object_or_404(Gato, id=id)
+        if form.is_valid():
+            adocao = form.save(commit=False)
+            adocao.usuario = request.user
+            adocao.gato = gato
+            adocao.save()
+            return redirect('feedback_sucesso')
+    else:
+        form = QueroadotarForm()
+    return render(request, 'querogato.html', {'form': form})
+
+def feedback_sucessoView(request):
+    return render(request, 'feedback_sucesso.html')
+
 
 # Create your views here.

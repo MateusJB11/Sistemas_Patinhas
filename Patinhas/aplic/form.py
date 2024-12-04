@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Usuario
+from .models import Usuario, Querocachorro, Querogato
+
 
 class CustomUserCreationForm(UserCreationForm):
 
@@ -12,3 +13,9 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = Usuario
         fields = ['first_name', 'last_name', 'cpf', 'data_nascimento', 'email', 'username', 'password1', 'password2']
+
+
+class QueroadotarForm(forms.ModelForm):
+    class Meta:
+        model = Querocachorro or Querogato
+        fields = ['mensagem']
